@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    background-color: antiquewhite;
+    margin: 50px;
+}
+
+.main {
+    background-color: #FFF;
+    width: 1000px;
+    height: 550px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+li {
+    list-style-image: url("../images/checkMark.png");
+}
+
+.title {
+    padding: 5px 10px 10px;
+    background-color: burlywood;
+}
+
+.entity {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.requirements {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.postman {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.endpoint{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.buttonDiv {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button {
+    color: #ffffff;
+    background-color: burlywood;
+    font-size: 19px;
+    border: 1px solid #765d19;
+    cursor: pointer
+}
+
+button:hover {
+    color: #856d14;
+    background-color: #ffffff;
+}
+
+.footer {
+    width: 1000px;
+    padding-top: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
