@@ -3,12 +3,12 @@
 **RestApi** - Это приложение, которое взаимодействует с файловым хранилищем и предоставляет возможность получать доступ к файлам и истории загрузок..
 
 **Общий стек технологий проекта:**   
-:white_check_mark: __PostgreSQL__;   
-:white_check_mark: __Hibernate__;   
-:white_check_mark: __Maven__;   
-:white_check_mark: __Flyway__.
+:white_check_mark: PostgreSQL;   
+:white_check_mark: Hibernate;   
+:white_check_mark: Maven;   
+:white_check_mark: Flyway.
 
 Приложение развёрнуто на heroku.com. Ссылка для входа: https://restapiapply.herokuapp.com/   
-На сайте описание проекта и подробные примеры всех end points для тестирования приложения.   
+На сайте есть описание проекта и подробные примеры всех end points для тестирования приложения.   
 
 *При первом обращении к сайту запускается сервер. Это займёт примерно 10 сек.*
