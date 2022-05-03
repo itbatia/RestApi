@@ -45,16 +45,16 @@
     </div>
 
     <div class="postman">
-        Взаимодействие с пользователем реализовано с помощью 2-х программ на выбор:
-        <a href="https://www.getpostman.com/" target="_blank">Postman</a> или
-        <a href="https://insomnia.rest/download" target="_blank">Insomnia</a><br>
+        Взаимодействие с RestApi можно реализовать с помощью таких программ как:
+        <a href="https://www.getpostman.com/" target="_blank">Postman</a>,
+        <a href="https://insomnia.rest/download" target="_blank">Insomnia</a> и т.п.<br>
         <hr>
     </div>
 
     <div class="buttonDiv">
         <h3>
             <form name="enter" action="pages/main.jsp" method="get">
-                Endpoints для тестиропания приложения RestApi находятся
+                Endpoints для тестирования приложения RestApi находятся
                 <button class="button" type="submit" name="enter">Здесь</button>
             </form>
         </h3>

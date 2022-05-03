@@ -6,9 +6,9 @@
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 
-        <property name="hibernate.connection.url">jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/d48gdb3i8om4sn?sslmode=require</property>
-        <property name="hibernate.connection.username">vxomjackcnhspm</property>
-        <property name="hibernate.connection.password">db10ecfa66e9d767bc08796216fe271cc0af616d64281e2b7bf76bb88cb390f1</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/d77c53dfs5q4bb?sslmode=require</property>
+        <property name="hibernate.connection.username">eicoptvowcwohb</property>
+        <property name="hibernate.connection.password">23d661acf1a6f28d843dcc11da6314a8ceb610d5b48dc161994399c79464b99e</property>
 
         <!-- Для просмотра количества запросов в БД -->
         <property name="hibernate.show_sql">true</property>
