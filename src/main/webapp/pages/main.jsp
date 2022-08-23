@@ -29,7 +29,7 @@
         <!--Files-->
         <tr>
             <td class="method_column_post">POST</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/v1/files</td>
+            <td class="url_column">https://restapiapply-2.herokuapp.com/v1/files</td>
             <td class="body_column">{ "name":"FileName", "content":"Some content" }</td>
         </tr>
         <tr>
