@@ -19,7 +19,7 @@
         <!-- local -->
         <!-- <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/RestApi</property>-->
         <!-- <property name="hibernate.connection.username">postgres</property>-->
-        <!-- <property name="hibernate.connection.password">itbatia7104203</property>-->
+        <!-- <property name="hibernate.connection.password">postgres</property>-->
 
         <!-- Для просмотра количества запросов в БД -->
         <property name="hibernate.show_sql">true</property>
