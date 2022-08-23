@@ -1,13 +1,19 @@
 package com.itbatia.app.service;
 
 import com.itbatia.app.model.File;
-import com.itbatia.app.repositopy.FileRepository;
-import com.itbatia.app.repositopy.db.DbFileRepositoryImpl;
+import com.itbatia.app.repository.FileRepository;
+import com.itbatia.app.repository.db.DbFileRepositoryImpl;
 
 import java.util.List;
 
 public class FileService {
-    private final FileRepository fileRepository = new DbFileRepositoryImpl();
+
+    private FileRepository fileRepository = new DbFileRepositoryImpl();
+
+    public FileService() {}
+    public FileService(FileRepository fileRepository) {
+        this.fileRepository = fileRepository;
+    }
 
     public File createFile(String name, String content) {
         File file = new File(null, name, content);

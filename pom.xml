@@ -21,9 +21,24 @@
     <hibernate.version>5.6.7.Final</hibernate.version>
     <postgresql.version>42.3.3</postgresql.version>
     <flyway.version>8.5.5</flyway.version>
-    <database.url>jdbc:postgresql://ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/d77c53dfs5q4bb?sslmode=require</database.url>
-    <username>eicoptvowcwohb</username>
-    <password>23d661acf1a6f28d843dcc11da6314a8ceb610d5b48dc161994399c79464b99e</password>
+    <junit.version>4.13.2</junit.version>
+    <mockito.version>4.6.1</mockito.version>
+
+    <!-- restapiapply -->
+    <!-- <database.url>jdbc:postgresql://ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/d77c53dfs5q4bb?sslmode=require</database.url>-->
+    <!-- <username>eicoptvowcwohb</username>-->
+    <!-- <password>23d661acf1a6f28d843dcc11da6314a8ceb610d5b48dc161994399c79464b99e</password>-->
+
+    <!-- restapiapply2 -->
+    <database.url>jdbc:postgresql://ec2-107-23-76-12.compute-1.amazonaws.com:5432/d5ipeajr6hk4i5?sslmode=require</database.url>
+    <username>dojlhxgihbwxno</username>
+    <password>1cf9d40a548746e8a4c8e9edcacde9fc736227a17b8c997f037e53ca0a08f39f</password>
+
+    <!-- local -->
+    <!-- <database.url>jdbc:postgresql://localhost:5432/RestApi</database.url>-->
+    <!-- <username>postgres</username>-->
+    <!-- <password>postgres</password>-->
+
   </properties>
 
   <dependencies>
@@ -58,6 +73,18 @@
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>${postgresql.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -154,5 +181,15 @@
 
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

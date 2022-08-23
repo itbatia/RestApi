@@ -29,45 +29,45 @@
         <!--Files-->
         <tr>
             <td class="method_column_post">POST</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/FileServlet/files</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/files</td>
             <td class="body_column">{ "name":"FileName", "content":"Some content" }</td>
         </tr>
         <tr>
             <td class="method_column_get">GET</td>
             <td class="url_column">
-                https://restapiapply.herokuapp.com/FileServlet/files<br>
-                https://restapiapply.herokuapp.com/FileServlet/files/{file_id}
+                https://restapiapply.herokuapp.com/v1/files<br>
+                https://restapiapply.herokuapp.com/v1/files/{file_id}
             </td>
             <td class="body_column">-</td>
         </tr>
         <tr>
             <td class="method_column_put">PUT</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/FileServlet/files/{file_id}</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/files/{file_id}</td>
             <td class="body_column">{ "name":"NewName", "content":"This is new some content!" }</td>
         </tr>
         <tr>
             <td class="method_column_delete">DELETE</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/FileServlet/files/{file_id}</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/files/{file_id}</td>
             <td class="body_column">-</td>
         </tr>
 
         <!--Users-->
         <tr>
             <td class="method_column_post">POST</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/UserServlet/users</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/users</td>
             <td class="body_column">{ "name":"Anna", "events":null }</td>
         </tr>
         <tr>
             <td class="method_column_get">GET</td>
             <td class="url_column">
-                https://restapiapply.herokuapp.com/UserServlet/users<br>
-                https://restapiapply.herokuapp.com/UserServlet/users/{user_id}
+                https://restapiapply.herokuapp.com/v1/users<br>
+                https://restapiapply.herokuapp.com/v1/users/{user_id}
             </td>
             <td class="body_column">-</td>
         </tr>
         <tr>
             <td class="method_column_put">PUT</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/UserServlet/users/{user_id}</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/users/{user_id}</td>
             <td class="body_column">
                 {"name":"Valera", "events": [ { "id":1, "activity":"CREATION", "dateEvent":"Apr 27, 2022, 12:00:00 AM",
                 "file": { "id":1, "name":"FileName", "content": "Some content" }, "userId":1 }]}
@@ -75,14 +75,14 @@
         </tr>
         <tr>
             <td class="method_column_delete">DELETE</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/UserServlet/users/{user_id}</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/users/{user_id}</td>
             <td class="body_column">-</td>
         </tr>
 
         <!--Events-->
         <tr>
             <td class="method_column_post">POST</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/EventServlet/events</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/events</td>
             <td class="body_column">
                 { "activity":"CREATION", "dateEvent":"Apr 27, 2022, 12:00:00 AM", "file": {
                 "id":1, "name":"FileName", "content":"Some content" }, "userId":"1" }</td>
@@ -90,14 +90,14 @@
         <tr>
             <td class="method_column_get">GET</td>
             <td class="url_column">
-                https://restapiapply.herokuapp.com/EventServlet/events<br>
-                https://restapiapply.herokuapp.com/EventServlet/events/{event_id}
+                https://restapiapply.herokuapp.com/v1/events<br>
+                https://restapiapply.herokuapp.com/v1/events/{event_id}
             </td>
             <td class="body_column">-</td>
         </tr>
         <tr>
             <td class="method_column_put">PUT</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/EventServlet/events/{event_id}</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/events/{event_id}</td>
             <td class="body_column">
                 { "activity":"UPDATE", "dateEvent":"Apr 27, 2022, 12:00:00 AM", "file": {
                 "id": 1, "name": "FileName", "content": "Some content" }, "userId": 1 }
@@ -105,7 +105,7 @@
         </tr>
         <tr>
             <td class="method_column_delete">DELETE</td>
-            <td class="url_column">https://restapiapply.herokuapp.com/EventServlet/events/{event_id}</td>
+            <td class="url_column">https://restapiapply.herokuapp.com/v1/events/{event_id}</td>
             <td class="body_column">-</td>
         </tr>
 
