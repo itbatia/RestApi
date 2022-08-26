@@ -28,6 +28,7 @@ public class UserRestControllerV1 extends HttpServlet {
                 String userString = GSON.toJson(userService.getUser(userId));
 
                 if (userString.contains("null")) {
+                    response.setStatus(400);
                     writer.println("User with id=" + userId + " doesn't exist");
                 } else {
                     writer.println(userString);

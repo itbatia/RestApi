@@ -29,6 +29,7 @@ public class FileRestControllerV1 extends HttpServlet {
                 String fileString = GSON.toJson(fileService.getFile(fileId));
 
                 if (fileString.contains("null")) {
+                    response.setStatus(400);
                     writer.println("File with id=" + fileId + " doesn't exist");
                 } else {
                     writer.println(fileString);
