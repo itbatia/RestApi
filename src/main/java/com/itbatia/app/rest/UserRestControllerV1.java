@@ -12,6 +12,7 @@ import static com.itbatia.app.utils.RestControllerUtil.*;
 public class UserRestControllerV1 extends HttpServlet {
 
     private final UserService userService = new UserService();
+    private final Gson GSON = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -20,11 +21,11 @@ public class UserRestControllerV1 extends HttpServlet {
         String endPoint = getEndpointFromUrl(url);
 
         if (endPoint.equalsIgnoreCase("users")) {
-            writer.println(new Gson().toJson(userService.getAllUsers()));
+            writer.println(GSON.toJson(userService.getAllUsers()));
         } else {
             try {
                 int userId = Integer.parseInt(endPoint);
-                String userString = new Gson().toJson(userService.getUser(userId));
+                String userString = GSON.toJson(userService.getUser(userId));
 
                 if (userString.contains("null")) {
                     writer.println("User with id=" + userId + " doesn't exist");
@@ -32,6 +33,7 @@ public class UserRestControllerV1 extends HttpServlet {
                     writer.println(userString);
                 }
             } catch (Exception ex) {
+                response.setStatus(400);
                 writer.println("Wrong type of parameter id");
                 ex.printStackTrace();
             }
@@ -42,10 +44,12 @@ public class UserRestControllerV1 extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
         try {
-            User newUser = new Gson().fromJson(request.getReader(), User.class);
-            userService.createUser(newUser.getName(), newUser.getEvents());
-            response.getWriter().println("User with name=" + newUser.getName() + " was successfully created.");
+            User newUser = GSON.fromJson(request.getReader(), User.class);
+            User createdUser = userService.createUser(newUser.getName(), newUser.getEvents());
+            String json = GSON.toJson(createdUser);
+            response.getWriter().println(json);
         } catch (Exception ex) {
+            response.setStatus(400);
             ex.printStackTrace();
         }
     }
@@ -56,12 +60,13 @@ public class UserRestControllerV1 extends HttpServlet {
         StringBuffer url = request.getRequestURL();
         try {
             int userId = getIdFromUrl(url);
-            User userToUpdate = new Gson().fromJson(request.getReader(), User.class);
+            User userToUpdate = GSON.fromJson(request.getReader(), User.class);
             userToUpdate.setId(userId);
             userService.updateUser(userToUpdate);
             response.getWriter().println("User updated successfully!");
         } catch (Exception e) {
-            response.getWriter().println("The user with this id doesn't exist or the data entered is incorrect.");
+            response.setStatus(400);
+            response.getWriter().println("The user with this id does not exist or the data entered is incorrect.");
             e.printStackTrace();
         }
     }

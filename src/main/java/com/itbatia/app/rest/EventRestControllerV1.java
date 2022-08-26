@@ -12,6 +12,7 @@ import static com.itbatia.app.utils.RestControllerUtil.*;
 public class EventRestControllerV1 extends HttpServlet {
 
     private final EventService eventService = new EventService();
+    private final Gson GSON = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -20,11 +21,11 @@ public class EventRestControllerV1 extends HttpServlet {
         String endPoint = getEndpointFromUrl(url);
 
         if (endPoint.equalsIgnoreCase("events")) {
-            writer.println(new Gson().toJson(eventService.getAllEvents()));
+            writer.println(GSON.toJson(eventService.getAllEvents()));
         } else {
             try {
                 int eventId = Integer.parseInt(endPoint);
-                String eventString = new Gson().toJson(eventService.getEvent(eventId));
+                String eventString = GSON.toJson(eventService.getEvent(eventId));
 
                 if (eventString.contains("null")) {
                     writer.println("Event with id=" + eventId + " doesn't exist");
@@ -32,6 +33,7 @@ public class EventRestControllerV1 extends HttpServlet {
                     writer.println(eventString);
                 }
             } catch (Exception e) {
+                response.setStatus(400);
                 writer.println("Wrong type of parameter id");
                 e.printStackTrace();
             }
@@ -42,10 +44,13 @@ public class EventRestControllerV1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
         try {
-            Event newEvent = new Gson().fromJson(request.getReader(), Event.class);
-            eventService.createEvent(newEvent.getActivity(), newEvent.getDate(), newEvent.getFile(), newEvent.getUserId());
-            response.getWriter().println("Event created successfully!");
+            Event newEvent = GSON.fromJson(request.getReader(), Event.class);
+            Event createdEvent = eventService.createEvent(newEvent.getActivity(), newEvent.getDate(), newEvent.getFile(), newEvent.getUserId());
+            String json = GSON.toJson(createdEvent);
+            response.setStatus(200);
+            response.getWriter().println(json);
         } catch (Exception e) {
+            response.setStatus(400);
             e.printStackTrace();
         }
     }
@@ -56,12 +61,13 @@ public class EventRestControllerV1 extends HttpServlet {
         StringBuffer url = request.getRequestURL();
         try {
             int eventId = getIdFromUrl(url);
-            Event eventToUpdate = new Gson().fromJson(request.getReader(), Event.class);
+            Event eventToUpdate = GSON.fromJson(request.getReader(), Event.class);
             eventToUpdate.setId(eventId);
             eventService.updateEvent(eventToUpdate);
             response.getWriter().println("Event updated successfully!");
         } catch (Exception e) {
-            response.getWriter().println("The event with this id doesn't exist or the data entered is incorrect.");
+            response.setStatus(400);
+            response.getWriter().println("The event with this id does not exist or the data entered is incorrect.");
             e.printStackTrace();
         }
     }
