@@ -28,6 +28,7 @@ public class EventRestControllerV1 extends HttpServlet {
                 String eventString = GSON.toJson(eventService.getEvent(eventId));
 
                 if (eventString.contains("null")) {
+                    response.setStatus(400);
                     writer.println("Event with id=" + eventId + " doesn't exist");
                 } else {
                     writer.println(eventString);
